@@ -1,0 +1,44 @@
+{
+  "name": "@brillout/analyze-reproduction",
+  "version": "0.0.0",
+  "scripts": {
+    "// === Dev ===": "",
+    "dev": "tsc --watch",
+    "// === Build ===": "",
+    "build": "rm -rf dist/ && tsc",
+    "// === Test ===": "",
+    "test": "analyze-reproduction",
+    "========= Formatting": "",
+    "format": "pnpm run format:biome",
+    "format:prettier": "git ls-files | egrep '\\.(json|js|jsx|css|ts|tsx|vue|mjs|cjs)$' | grep --invert-match package.json | xargs pnpm exec prettier --write",
+    "format:biome": "biome format --write .",
+    "format:check": "biome format . || echo Fix formatting by running: $ pnpm -w run format",
+    "// === Release ===": "",
+    "release": "release-me patch",
+    "release:minor": "release-me minor",
+    "release:commit": "release-me commit",
+    "========= Reset": "",
+    "reset": "git clean -Xdf && pnpm install && pnpm run build"
+  },
+  "dependencies": {
+    "@brillout/picocolors": "^1.0.12"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.5.3",
+    "@brillout/analyze-reproduction": "link:./",
+    "@brillout/release-me": "^0.3.9",
+    "@types/node": "^20.8.5",
+    "prettier": "^2.8.7",
+    "typescript": "^5.4.5"
+  },
+  "type": "module",
+  "bin": "./bin.js",
+  "files": [
+    "dist/"
+  ],
+  "repository": "github:brillout/analyze-reproduction",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}
