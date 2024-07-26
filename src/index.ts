@@ -21,14 +21,16 @@ async function main() {
   const packageJson = readJson('package.json') as PackageJson
 
   const deps = await Promise.all(
-    [...Object.keys(packageJson.dependencies), ...Object.keys(packageJson.devDependencies)].map(async (name) => {
-      const ret = (await fetchJson(`https://api.npmjs.org/downloads/point/last-week/${name}`)) as NpmStatDownloads
-      let downloads = 'downloads' in ret ? ret.downloads : 0
-      return {
-        name,
-        downloads,
-      }
-    }),
+    [...Object.keys(packageJson.dependencies || {}), ...Object.keys(packageJson.devDependencies || {})].map(
+      async (name) => {
+        const ret = (await fetchJson(`https://api.npmjs.org/downloads/point/last-week/${name}`)) as NpmStatDownloads
+        let downloads = 'downloads' in ret ? ret.downloads : 0
+        return {
+          name,
+          downloads,
+        }
+      },
+    ),
   )
 
   deps.sort(higherFirst(({ downloads }) => downloads))
