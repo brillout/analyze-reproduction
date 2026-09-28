@@ -26,7 +26,7 @@
   "devDependencies": {
     "@biomejs/biome": "^1.5.3",
     "@brillout/analyze-reproduction": "link:./",
-    "@brillout/release-me": "^0.3.9",
+    "@brillout/release-me": "^0.4.18",
     "@types/node": "^20.8.5",
     "prettier": "^2.8.7",
     "typescript": "^5.4.5"
