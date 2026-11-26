@@ -26,7 +26,7 @@
   "devDependencies": {
     "@biomejs/biome": "^1.5.3",
     "@brillout/analyze-reproduction": "link:./",
-    "@brillout/release-me": "^0.4.18",
+    "@brillout/release-me": "^0.5.2",
     "@types/node": "^20.8.5",
     "prettier": "^2.8.7",
     "typescript": "^7.0.2"
@@ -40,5 +40,6 @@
   "license": "MIT",
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "packageManager": "pnpm@10.34.9"
 }
